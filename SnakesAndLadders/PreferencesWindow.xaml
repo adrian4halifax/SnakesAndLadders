@@ -1,0 +1,344 @@
+﻿<Window x:Class="SnakesAndLadders.PreferencesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Preferences" Height="410" Width="897"
+        WindowStartupLocation="CenterScreen" Padding="10">
+
+    <Grid Margin="10,10,10,14">
+
+        <!-- COLUMN SETUP -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="314"/>
+            <ColumnDefinition Width="102"/>
+            <ColumnDefinition Width="343"/>
+            <ColumnDefinition Width="97"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ROW SETUP -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="30"/>
+            <RowDefinition Height="Auto" MinHeight="109"/>
+            <RowDefinition Height="Auto" MinHeight="30"/>
+            <RowDefinition Height="Auto" MinHeight="131"/>
+            <RowDefinition Height="29"/>
+            <RowDefinition Height="3"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- ========================================================= -->
+        <!--  COUNTER COLOUR SELECTION (ENCLOSED IN A BORDER)            -->
+        <!-- ========================================================= -->
+        <Border Grid.ColumnSpan="4"
+                Grid.Row="1"
+                Grid.RowSpan="3"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="6"
+                Padding="10"
+                Margin="8,111,2,27">
+
+            <!-- This Grid holds ALL elements inside the border -->
+            <Grid>
+
+                <!-- INTERNAL GRID COLUMNS -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="314"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="344"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- INTERNAL GRID ROWS -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"  MinHeight="100"/>
+                </Grid.RowDefinitions>
+
+
+                <!-- Label: Counter Colours -->
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                           Text="Select counter colours"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Margin="2,0,0,10"/>
+
+
+                <!-- Player 1 Box -->
+                <GroupBox Header="Player 1"
+                          Grid.Column="0"
+                          Grid.Row="1"
+                          Margin="0,0,10,8">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <Image x:Name="P1CounterRed" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Red" Source="Images/Counters/CounterRed.png"/>
+
+                            <Image x:Name="P1CounterOrange" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Orange" Source="Images/Counters/CounterOrange.png"/>
+
+                            <Image x:Name="P1CounterYellow" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Yellow" Source="Images/Counters/CounterYellow.png"/>
+
+                            <Image x:Name="P1CounterGreen" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Green" Source="Images/Counters/CounterGreen.png"/>
+
+                            <Image x:Name="P1CounterBlue" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Blue" Source="Images/Counters/CounterBlue.png"/>
+
+                            <Image x:Name="P1CounterPurple" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Purple" Source="Images/Counters/CounterPurple.png"/>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                </GroupBox>
+
+
+                <!-- Player 1 Turn Counter Preview -->
+                <Border Grid.Column="1" Grid.Row="1"
+                        Margin="0,10,0,10"
+                        BorderBrush="Gray"
+                        BorderThickness="0.5"
+                        CornerRadius="3"
+                        VerticalAlignment="Stretch">
+
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image x:Name="P1GoButtonImage" Width="60" Height="60"
+                               Source="Images/Counters/CounterRed.png"/>
+
+                        <Button x:Name="P1GoButtonPreview"
+                                IsHitTestVisible="False"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                Content="Go"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                FontFamily="Segoe UI"
+                                FontSize="20"
+                                Foreground="White"/>
+                    </Grid>
+
+                </Border>
+
+
+                <!-- Player 2 Box -->
+                <GroupBox Header="Player 2"
+                          Grid.Column="2"
+                          Margin="30,31,10,8" Grid.RowSpan="2">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <Image x:Name="P2CounterRed" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Red" Source="Images/Counters/CounterRed.png"/>
+
+                            <Image x:Name="P2CounterOrange" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Orange" Source="Images/Counters/CounterOrange.png"/>
+
+                            <Image x:Name="P2CounterYellow" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Yellow" Source="Images/Counters/CounterYellow.png"/>
+
+                            <Image x:Name="P2CounterGreen" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Green" Source="Images/Counters/CounterGreen.png"/>
+
+                            <Image x:Name="P2CounterBlue" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Blue" Source="Images/Counters/CounterBlue.png"/>
+
+                            <Image x:Name="P2CounterPurple" Width="40" Height="40" Margin="4"
+                                   Cursor="Hand" MouseLeftButtonUp="CounterColor_Click"
+                                   Tag="Purple" Source="Images/Counters/CounterPurple.png"/>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                </GroupBox>
+
+
+                <!-- Player 2 Turn Counter Preview -->
+                <Border Grid.Column="3" Grid.Row="1"
+                        Margin="0,10,0,10"
+                        BorderBrush="Gray"
+                        BorderThickness="0.5"
+                        CornerRadius="3">
+
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image x:Name="P2GoButtonImage" Width="60" Height="60"
+                               Source="Images/Counters/CounterGreen.png"/>
+
+                        <Button x:Name="P2GoButtonPreview"
+                                IsHitTestVisible="False"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                Content="Go"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                FontFamily="Segoe UI"
+                                FontSize="20"
+                                Foreground="White"/>
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+        </Border>
+
+
+        <!-- ========================================================= -->
+        <!--  STARTING BOARD SELECTION (ENCLOSED IN A BORDER)            -->
+        <!-- ========================================================= -->
+        <Border Grid.ColumnSpan="2"
+         Grid.Row="0"
+         Grid.RowSpan="2"
+         BorderBrush="Gray"
+         BorderThickness="1"
+         CornerRadius="6"
+         Padding="10"
+         Margin="8,5,2,26">
+
+            <!-- This Grid holds ALL elements inside the border -->
+            <Grid>
+
+                <!-- INTERNAL GRID COLUMNS -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="414"/>
+
+
+                </Grid.ColumnDefinitions>
+
+                <!-- INTERNAL GRID ROWS -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0"
+            Text="Select starting board"
+            FontSize="16" FontWeight="Bold"
+            Margin="5,0,0,10"/>
+                <Border Grid.Column="0"
+Grid.Row="0"
+Margin="32,40,60,20"
+BorderBrush="Gray"
+BorderThickness="1"
+CornerRadius="6"
+Padding="10">
+
+
+                    <ComboBox x:Name="BoardCombo"/>
+                </Border>
+
+            </Grid>
+        </Border>
+
+
+
+
+
+        <!-- ========================================================= -->
+        <!--  TOKEN SELECTION (ENCLOSED IN A BORDER)            -->
+        <!-- ========================================================= -->
+        <Border Grid.Column="2" Grid.ColumnSpan="2"
+ Grid.Row="0"
+ Grid.RowSpan="2"
+ BorderBrush="Gray"
+ BorderThickness="1"
+ CornerRadius="6"
+ Padding="10"
+ Margin="32,5,2,26">
+
+            <!-- This Grid holds ALL elements inside the border -->
+            <Grid>
+
+                <!-- INTERNAL GRID COLUMNS -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="414"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!-- INTERNAL GRID ROWS -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0"
+           Text="Select tokens"
+           FontSize="16" FontWeight="Bold"
+           Margin="10,0,260,67"/>
+
+                <!-- (Token selection UI to be added here) -->
+                <Border Grid.Column="0"
+Grid.Row="0"
+Margin="30,43,62,22"
+BorderBrush="Gray"
+BorderThickness="1"
+CornerRadius="6"
+Padding="10">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                        <RadioButton x:Name="Tokens0"
+             Content="0 tokens"
+             Margin="0,0,50,0"/>
+
+                        <RadioButton x:Name="Tokens3"
+             Content="3 tokens"
+             IsChecked="True"
+             Margin="0,0,50,0"/>
+
+                        <RadioButton x:Name="TokensUnlimited"
+             Content="∞ tokens"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </Grid>
+        </Border>
+
+
+        <!-- ========================================================= -->
+        <!--  TOKENS SECTION                                           -->
+        <!-- ========================================================= -->
+
+
+
+        <!-- ========================================================= -->
+        <!--  APPLY / CANCEL                                           -->
+        <!-- ========================================================= -->
+        <StackPanel Grid.Row="3"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal"
+                    Margin="244,127,0,0"
+                    Height="20" Width="200" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
+
+            <Button x:Name="ApplyButton"
+                    Content="Apply"
+                    Width="80"
+                    Margin="10,0"
+                    Click="ApplyButton_Click"/>
+
+            <Button x:Name="CancelButton"
+                    Content="Cancel"
+                    Width="80"
+                    Margin="10,0"
+                    Click="CancelButton_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

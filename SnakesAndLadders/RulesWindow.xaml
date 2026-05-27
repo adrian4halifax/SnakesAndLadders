@@ -1,0 +1,41 @@
+﻿<Window x:Class="SnakesAndLadders.RulesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Game Rules"
+        Width="752" Height="570"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Border Padding="20" Background="White">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <TextBlock TextWrapping="Wrap" FontSize="16">
+    <Bold>RULES</Bold>
+    <LineBreak/><LineBreak/>
+
+    This is digital Snakes and Ladders for 2 players.
+    <LineBreak/><LineBreak/>
+
+    • Each player has their <Bold>own board</Bold><LineBreak/>
+    • Players take turns to roll the die by clicking the <Bold>Go</Bold> buttons and then selecting a counter<LineBreak/>
+    • If you have <Bold>tokens</Bold>, you may move <Bold>either</Bold> counter<LineBreak/>
+    • If you have no tokens, you may only move your <Bold>own</Bold> counter<LineBreak/>
+    • Use tokens wisely for <Bold>strategic advantage</Bold>!<LineBreak/><LineBreak/>
+
+    • Landing at the <Bold>bottom of a ladder</Bold> moves the counter to the top<LineBreak/>
+    • Landing on the <Bold>head of a snake</Bold> moves the counter to the bottom<LineBreak/>
+    • Landing on the <Bold>blue arrows</Bold> triggers a transition to another board<LineBreak/>
+    • Sometimes landing on a square will trigger a <Bold>sound bite</Bold><LineBreak/><LineBreak/>
+
+    • You win by finishing <Bold>exactly on square 100</Bold> on any board<LineBreak/>
+    • If a roll takes you beyond 100, the <Bold>excess counts back</Bold><LineBreak/><LineBreak/>
+
+    • There are up to <Bold>8 boards</Bold> that may be revealed in a game<LineBreak/>
+    • In <Bold>Upside Down World</Bold>, players move <Bold>up snakes</Bold> and <Bold>down ladders</Bold>!<LineBreak/>
+    • In <Bold>Chaos Zone</Bold>, board elements are hidden and counters move <Bold>unexpectedly</Bold><LineBreak/><LineBreak/>
+
+    <Bold>The most important rule is to HAVE FUN!</Bold>
+            </TextBlock>
+
+        </ScrollViewer>
+    </Border>
+</Window>

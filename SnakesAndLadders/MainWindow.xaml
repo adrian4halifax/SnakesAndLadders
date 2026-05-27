@@ -1,0 +1,314 @@
+﻿<Window x:Class="SnakesAndLadders.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Snakes and Ladders"
+        Width="1618" Height="950"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+
+        <Style x:Key="CounterButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Window.Resources>
+
+
+    <Grid Background="#EEE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="600"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="160"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- First Row -->
+        <!-- Menu Bar -->
+        <Menu Grid.Row="0" Grid.ColumnSpan="5" Background="#DDD" Height="20">
+            <MenuItem Header="Menu">
+
+                <MenuItem Header="Rules" Click="MenuRules_Click"/>
+
+                <MenuItem Header="Preferences" Click="MenuPreferences_Click"/>
+                <Separator/>
+
+                <MenuItem Header="Restart Game" Click="MenuRestart_Click"/>
+
+                <MenuItem Header="Exit Game" Click="MenuExit_Click"/>
+
+                <Separator/>
+
+                <!--<MenuItem Header="Administrator" Click="MenuAdmin_Click"/>-->
+            </MenuItem>
+        </Menu>
+
+        <!-- SECOND ROW -->
+        <!-- Left Boarder -->
+        <Image Grid.Row="1" Grid.RowSpan="4"
+        Source="Images/Borders/BorderLeft.png"
+               Stretch="Fill"
+        Width="110" Height="800"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" >
+        </Image>
+
+        <!-- Title -->
+        <Image Grid.Row="1" Grid.ColumnSpan="5"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Width="1000" Height="80"
+        Source="Images/Title/Title.png"
+        Stretch="UniformToFill">
+        </Image>
+
+        <!-- Right Boarder -->
+        <Image Grid.Row="1" Grid.Column="4" Grid.RowSpan="4"
+        Source="Images/Borders/BorderRight.png"
+               Stretch="Fill"
+        Width="110" Height="800"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" >
+        </Image>
+
+        <!-- THIRD ROW -->
+        <!-- Left Board Player 1-->
+        <Grid Grid.Row="2" Grid.Column="1"
+        Width="600" Height="600"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+
+            <!-- Calibrated board canvas for counter overlay-->
+            <Canvas x:Name="LeftBoardCanvas"
+            Width="580" Height="580"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+                <!-- The board artwork -->
+                <Image x:Name="LeftBoardImage"
+                    Source="Images/Boards/BoardLevel1.png"
+            Width="580" Height="580"
+            IsHitTestVisible="False">
+                </Image>             
+            </Canvas>
+        </Grid>
+
+        <!-- Die Area -->
+        <Grid Grid.Row="2" Grid.Column="2"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>     <!-- Die face -->
+                <RowDefinition Height="120"/>  <!-- Turn counter buttons -->
+                <RowDefinition Height="70"/>    <!-- Counter tray -->
+                <RowDefinition Height="Auto"/>  <!-- Counter tray label -->
+            </Grid.RowDefinitions>
+
+            <!-- Die face -->
+            <Image x:Name="DieFace"
+             Grid.Row="0"
+             Width="75"
+             Height="75"
+             Source="Images/DieFaces/die1.png"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center" />
+
+            <!-- Turn counters with overlay Go buttons -->
+            <StackPanel Grid.Row="1"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Margin="0,10,0,0">
+
+                <!-- Player 1 -->
+                <Grid Margin="10,0">
+                    <Image x:Name="P1TurnCounter"
+                     Width="60"
+                     Height="60"
+                     Source="Images/Counters/P1Counter.png" />
+                    <Button x:Name="P1GoButton"
+                      Click="P1GoButton_Click"
+                      Content="Go"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      FontSize="20"
+                      Foreground="White"
+                      Visibility="Visible" />
+                </Grid>
+
+                <!-- Player 2 -->
+                <Grid Margin="10,0">
+                    <Image x:Name="P2TurnCounter"
+                     Width="60"
+                     Height="60"
+                     Source="Images/Counters/P2Counter.png"
+                     Opacity="0.4" />
+                    <Button x:Name="P2GoButton"
+                      Click="P2GoButton_Click"
+                      Content="Go"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      FontSize="20"
+                      Foreground="White"
+                      Visibility="Collapsed" />
+                </Grid>
+
+            </StackPanel>
+
+            <Border Grid.Row="2"
+              BorderBrush="Black"
+              BorderThickness="2"
+              CornerRadius="6"
+              Background="White"
+              Padding="8"
+              Margin="0,10,0,0">
+
+                <StackPanel Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center">
+
+                    <!-- Player 1 -->
+                    <Canvas x:Name="P1TrayCanvas"
+        Width="40" Height="40"
+        Opacity="0.5">
+                        <Image x:Name="P1Counter"
+           Source="Images/Counters/P1Counter.png"
+           Width="40" Height="40" />
+                        <Button x:Name="P1CounterButton"
+        Style="{StaticResource CounterButtonStyle}"
+        Click="Player1Counter_Click"
+        Width="40" Height="40"
+        Visibility="Collapsed" />
+
+                    </Canvas>
+
+                    <!-- Player 2 -->
+                    <Canvas x:Name="P2TrayCanvas"
+        Width="40" Height="40"
+        Margin="20,0,0,0"
+        Opacity="0.5">
+                        <Image x:Name="P2Counter"
+           Source="Images/Counters/P2Counter.png"
+           Width="40" Height="40" />
+                        <Button x:Name="P2CounterButton"
+        Style="{StaticResource CounterButtonStyle}"
+        Click="Player2Counter_Click"
+        Width="40" Height="40"
+        Visibility="Collapsed" />
+
+                    </Canvas>
+
+                </StackPanel>
+            </Border>
+
+            <TextBlock Grid.Row="3"
+                 Text="Game Counters"
+                 HorizontalAlignment="Center"
+                 Margin="0,4,0,0"
+                 FontSize="14"
+                 FontWeight="SemiBold"
+                 Foreground="Black"
+                 x:Name="CounterTrayLabel"
+                 Opacity="0.5" />
+
+        </Grid>
+    
+        <!-- Right Board -->
+        <Grid Grid.Row="2" Grid.Column="3"
+        Width="600" Height="600"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+
+            <!-- Calibrated board canvas for counter overlay-->
+            <Canvas x:Name="RightBoardCanvas"
+            Width="580" Height="580"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+                <!-- The board artwork -->
+                <Image x:Name="RightBoardImage"
+                    Source="Images/Boards/BoardLevel1.png"
+                Width="580" Height="580"
+                IsHitTestVisible="False">
+                </Image>               
+            </Canvas>
+        </Grid>
+
+
+        <!-- FOURTH ROW -->
+        <!-- Tokens Player 1-->
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="left">
+            <Label x:Name="P1Tokens" Content="Player 1 Tokens" FontSize="20">
+            </Label>
+            <Image x:Name="P1Token1" Width="40"
+                   Source="Images/Token/Token.png">
+            </Image>
+            <Image x:Name="P1Token2" Width="40"
+            Source="Images/Token/Token.png">
+            </Image>
+            <Image x:Name="P1Token3" Width="40"
+            Source="Images/Token/Token.png">
+            </Image>
+        </StackPanel>
+
+        <!-- Tokens Player 2-->
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="left">
+            <Label x:Name="P2Tokens" Content="Player 2 Tokens" FontSize="20">
+            </Label>
+            <Image x:Name="P2Token1" Width="40"
+           Source="Images/Token/Token.png">
+            </Image>
+            <Image x:Name="P2Token2" Width="40"
+    Source="Images/Token/Token.png">
+            </Image>
+            <Image x:Name="P2Token3" Width="40"
+    Source="Images/Token/Token.png">
+            </Image>
+        </StackPanel>
+
+        <!-- BOTTOM ROW -->
+        <!-- Bottom Boarder -->
+        <Image Source="Images/Borders/BottomLeft.png"
+               Stretch="Fill"
+       Grid.Row="4"
+       Grid.Column="1"
+       Grid.ColumnSpan="2"
+       Width="660"
+       Height="100"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Top">
+        </Image>
+
+        <Image Source="Images/Borders/BottomRight.png"
+               Stretch="Fill"
+       Grid.Row="4"
+       Grid.Column="2"
+       Grid.ColumnSpan="2"
+       Width="660"
+       Height="100"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Top" />
+    </Grid>        
+</Window>
