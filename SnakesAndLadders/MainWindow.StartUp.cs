@@ -112,10 +112,10 @@ private void LoadBoardActionsFiles()
             AddSoundToLibrary("tradSnakesAndLadders", "Sounds/Worlds/TradSnakesAndLadders.mp3");
             AddSoundToLibrary("upsideDownWorld", "Sounds/Worlds/UpsideDownWorld.mp3");
 
-            AddSoundToLibrary("boardSound38", "Sounds/MonsterTruckSounds/MonsterTruck1.mp3");
-            AddSoundToLibrary("boardSound39", "Sounds/MonsterTruckSounds/MonsterTruck2.mp3");
-            AddSoundToLibrary("boardSound40", "Sounds/MonsterTruckSounds/MonsterTruck3.wav");
-            AddSoundToLibrary("boardSound41", "Sounds/MonsterTruckSounds/MonsterTruck4.wav");
+            AddSoundToLibrary("boardSound38", "Sounds/MonsterTruckSounds/Monster1.mp3");
+            AddSoundToLibrary("boardSound39", "Sounds/MonsterTruckSounds/Monster2.mp3");
+            AddSoundToLibrary("boardSound40", "Sounds/MonsterTruckSounds/Monster3.wav");
+            AddSoundToLibrary("boardSound41", "Sounds/MonsterTruckSounds/Monster4.wav");
 
             AddSoundToLibrary("boardSound1", "Sounds/ChaosSounds/Chaos1.mp3");
             AddSoundToLibrary("boardSound2", "Sounds/ChaosSounds/Chaos2.mp3");
@@ -158,8 +158,8 @@ private void LoadBoardActionsFiles()
             AddSoundToLibrary("boardSound46", "Sounds/ChaosSounds/Chaos38.wav");
             AddSoundToLibrary("boardSound47", "Sounds/ChaosSounds/Chaos39.wav");
             AddSoundToLibrary("boardSound48", "Sounds/ChaosSounds/Chaos40.wav");
-            AddSoundToLibrary("boardSound49", "Sounds/ChaosSounds/Chaos41.ogg");
-            AddSoundToLibrary("boardSound50", "Sounds/ChaosSounds/Chaos42.ogg");
+            AddSoundToLibrary("boardSound49", "Sounds/ChaosSounds/Chaos41.wav");
+            AddSoundToLibrary("boardSound50", "Sounds/ChaosSounds/Chaos42.wav");
             AddSoundToLibrary("boardSound51", "Sounds/ChaosSounds/Chaos43.wav");
             AddSoundToLibrary("boardSound52", "Sounds/ChaosSounds/Chaos44.wav");
             AddSoundToLibrary("boardSound53", "Sounds/ChaosSounds/Chaos45.wav");
@@ -173,10 +173,10 @@ private void LoadBoardActionsFiles()
             AddSoundToLibrary("boardSound61", "Sounds/ChaosSounds/Chaos53.wav");
             AddSoundToLibrary("boardSound62", "Sounds/ChaosSounds/Chaos54.wav");
             AddSoundToLibrary("boardSound63", "Sounds/ChaosSounds/Chaos55.wav");
-            AddSoundToLibrary("boardSound64", "Sounds/ChaosSounds/Chaos56.ogg");
-            AddSoundToLibrary("boardSound65", "Sounds/ChaosSounds/Chaos57.ogg");
+            AddSoundToLibrary("boardSound64", "Sounds/ChaosSounds/Chaos56.wav");
+            AddSoundToLibrary("boardSound65", "Sounds/ChaosSounds/Chaos57.wav");
             AddSoundToLibrary("boardSound66", "Sounds/ChaosSounds/Chaos58.flac");
-            AddSoundToLibrary("boardSound67", "Sounds/ChaosSounds/Chaos59.ogg");
+            AddSoundToLibrary("boardSound67", "Sounds/ChaosSounds/Chaos59.wav");
             AddSoundToLibrary("boardSound68", "Sounds/ChaosSounds/Chaos60.wav");
 
             AddSoundToLibrary("boardSound8", "Sounds/PrehistoricSounds/Prehistoric1.mp3");
@@ -259,8 +259,16 @@ private void LoadBoardActionsFiles()
                 { 657, "boardSound57" },
                 { 658, "boardSound58" },
                 { 659, "boardSound59" },
-                { 660, "boardSound60" }
-                
+                { 660, "boardSound60" },
+                { 661, "boardSound61" },
+                { 662, "boardSound62" },
+                { 663, "boardSound63" },
+                { 664, "boardSound64" },
+                { 665, "boardSound65" },
+                { 666, "boardSound66" },
+                { 667, "boardSound67" },
+                { 668, "boardSound68" }
+
             };
         }
 

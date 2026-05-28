@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace SnakesAndLadders
@@ -57,6 +58,19 @@ namespace SnakesAndLadders
             P1Counter.Opacity = 1.0;
             P2Counter.Opacity = 1.0;
 
+            // Reset counter images (default colours)
+            P1Counter.Source = new BitmapImage(new Uri("Images/Counters/P1Counter.png", UriKind.Relative));
+            P2Counter.Source = new BitmapImage(new Uri("Images/Counters/P2Counter.png", UriKind.Relative));
+
+            // Reset Go button images (default colours)
+            P1TurnCounter.Source = new BitmapImage(new Uri("Images/Counters/P1Counter.png", UriKind.Relative));
+            P2TurnCounter.Source = new BitmapImage(new Uri("Images/Counters/P2Counter.png", UriKind.Relative));
+
+            // Reset Go button text colours
+            P1GoButton.Foreground = Brushes.White;
+            P2GoButton.Foreground = Brushes.White;
+
+
             // Reset counter positions inside trays
             Canvas.SetLeft(P1Counter, 0);
             Canvas.SetTop(P1Counter, 0);
@@ -90,6 +104,12 @@ namespace SnakesAndLadders
 
             Player1HasTokens = true;
             Player2HasTokens = true;
+
+            // Reset token labels (default text)
+            P1Tokens.Content = "Player 1 Tokens";
+            P2Tokens.Content = "Player 2 Tokens";
+
+
         }
 
 
@@ -118,9 +138,11 @@ namespace SnakesAndLadders
 
         public void ResetForPreferences()
         {
+            ResetCore();
+            ResetGame();
             // Preferences-specific resets (if any)
-            Player1CurrentBoardName = "1";
-            Player2CurrentBoardName = "1";
+           //Player1CurrentBoardName = "1";
+           //Player2CurrentBoardName = "1";
         }
 
     }

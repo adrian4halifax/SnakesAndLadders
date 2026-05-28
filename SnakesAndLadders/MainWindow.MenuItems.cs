@@ -13,7 +13,7 @@ namespace SnakesAndLadders
             rules.ShowDialog();
         }
 
-        private void MenuRestart_Click(object sender, RoutedEventArgs e)
+        private void MenuReset_Click(object sender, RoutedEventArgs e)
         {
             ResetGame();
         }

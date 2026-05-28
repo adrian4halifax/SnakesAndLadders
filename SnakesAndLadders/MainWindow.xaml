@@ -54,7 +54,7 @@
                 <MenuItem Header="Preferences" Click="MenuPreferences_Click"/>
                 <Separator/>
 
-                <MenuItem Header="Restart Game" Click="MenuRestart_Click"/>
+                <MenuItem Header="Reset Game" Click="MenuReset_Click"/>
 
                 <MenuItem Header="Exit Game" Click="MenuExit_Click"/>
 
