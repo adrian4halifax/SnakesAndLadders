@@ -25,6 +25,7 @@ namespace SnakesAndLadders
             LoadSoundLibrary();
             LoadSoundEffects();
             LoadWorldAnnouncements();
+            _ = PreloadSoundsAsync();
             InitialiseBoardImages();
             InitialiseBoardLevels();
             InitialiseBoardNames();           

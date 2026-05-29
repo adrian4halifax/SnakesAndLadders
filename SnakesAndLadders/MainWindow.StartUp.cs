@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -190,7 +191,9 @@ private void LoadBoardActionsFiles()
 
         private void AddSoundToLibrary(string key, string relativePath)
         {
-            var uri = new Uri($"pack://siteoforigin:,,,/{relativePath}", UriKind.Absolute);
+            var basePath = AppDomain.CurrentDomain.BaseDirectory;
+            var fullPath = Path.Combine(basePath, relativePath);
+            var uri = new Uri(fullPath, UriKind.Absolute);
             soundUris[key] = uri;
         }
 
@@ -288,6 +291,26 @@ private void LoadBoardActionsFiles()
     };
 
         }
+
+
+        private async Task PreloadSoundsAsync()
+        {
+            foreach (var uri in soundUris.Values)   // soundUris = your dictionary of URIs
+            {
+                var temp = new MediaPlayer();
+                temp.Open(uri);
+
+                // Wait for MediaOpened
+                var tcs = new TaskCompletionSource<bool>();
+                temp.MediaOpened += (s, e) => tcs.TrySetResult(true);
+
+                await tcs.Task;
+
+                // Close immediately — hydration complete
+                temp.Close();
+            }
+        }
+
 
 
         private void PlaySound(string key)
